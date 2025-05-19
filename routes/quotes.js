@@ -12,7 +12,7 @@ router.get('/today', async (req, res) => {
     .from('quotes')
     .select(`text_${lang}, author, tag`)
     .eq('date', today)
-    .single();
+    .limit(10);
 
   if (error) {
     return res.status(500).json({ error: error.message });
